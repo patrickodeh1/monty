@@ -6,13 +6,11 @@
  */
 void read_file(FILE *file)
 {
-	char *line = NULL, *opcode = NULL, *arg = NULL;
-	size_t len = 0;
-	ssize_t read;
-	stack_t *stack = NULL;
+	char line[1024], *opcode;
 	unsigned int line_number = 0;
+	stack_t *stack = NULL;
 
-	while ((read = getline(&line, &len, file)) != -1)
+	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
 		opcode = strtok(line, " \n\t");
@@ -22,7 +20,6 @@ void read_file(FILE *file)
 		execute_opcode(&stack, opcode, line_number, strtok(NULL, " \n\t"));
 	}
 
-	free(line);
 	free_stack(stack);
 }
 
@@ -33,8 +30,8 @@ void read_file(FILE *file)
  * @line_number: The current line number in the Monty bytecode file.
  * @arg: Argument for the push instruction, if applicable.
  */
-void execute_opcode(stack_t **stack, char *opcode,
-					unsigned int line_number, char *arg)
+void execute_opcode(stack_t **stack, char *opcode, unsigned int line_number,
+					char *arg)
 {
 	if (strcmp(opcode, "push") == 0)
 	{
