@@ -66,6 +66,10 @@ void execute_opcode(stack_t **stack, char *opcode, unsigned int line_number,
 	{
 		sub(stack, line_number);
 	}
+	else if (strcmp(opcode, "div") == 0)
+	{
+		div(stack, line_number);
+	}
 	else if (strcmp(opcode, "nop") == 0)
 	{
 		nop(stack, line_number);
