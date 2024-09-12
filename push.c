@@ -19,13 +19,13 @@ void push(stack_t **stack, unsigned int line_number, char *arg)
 	}
 
 	for (i = 1; arg[i] != '\0'; i++)
-    {
-        if (!isdigit(arg[i]))
-        {
-            fprintf(stderr, "L%d: usage: push integer\n", line_number);
-            exit(EXIT_FAILURE);
-        }
-    }
+	{
+		if (!isdigit(arg[i]))
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
 
 	value = atoi(arg); /* Convert the argument to an integer */
 
