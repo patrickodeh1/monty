@@ -70,6 +70,14 @@ void execute_opcode(stack_t **stack, char *opcode, unsigned int line_number,
 	{
 		div_stack(stack, line_number);
 	}
+	else if (strcmp(opcode, "mul") == 0)
+	{
+		mul(stack, line_number);
+	}
+	else if (strcmp(opcode, "mod") == 0)
+	{
+		mod(stack, line_number);
+	}
 	else if (strcmp(opcode, "nop") == 0)
 	{
 		nop(stack, line_number);
