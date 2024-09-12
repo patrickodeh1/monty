@@ -5,7 +5,7 @@
  * @stack: Double pointer to the stack (head of the stack).
  * @line_number: Line number in the bytecode file.
  */
-void pstr(stack_t **stack, unsigned int line_number)
+void pstr(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 {
 	stack_t *current = *stack;
 
