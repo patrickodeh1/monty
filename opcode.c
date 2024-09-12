@@ -35,11 +35,20 @@ void execute_opcode(stack_t **stack, char *opcode, unsigned int line_number,
 {
 	if (strcmp(opcode, "push") == 0)
 	{
+		if (arg == NULL || !is_integer(arg))
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
 		push(stack, line_number, arg);
 	}
 	else if (strcmp(opcode, "pall") == 0)
 	{
 		pall(stack, line_number);
+	}
+	else if (strcmp(opcode, "pint") == 0)
+	{
+		pint(stack, line_number);
 	}
 	else
 	{
@@ -62,6 +71,24 @@ void free_stack(stack_t *stack)
 		stack = stack->next;
 		free(tmp);
 	}
+}
+
+/**
+ * is_integer - Checks if the given string represents a valid integer.
+ * @arg: String to check.
+ * Return: 1 if valid integer, 0 otherwise.
+ */
+int is_integer(char *arg)
+{
+	if (arg[0] == '-' || arg[0] == '+')  /* Handle negative/positive numbers */
+		arg++;
+	while (*arg)
+	{
+		if (!isdigit(*arg))
+			return (0);
+		arg++;
+	}
+	return (1);
 }
 
 /**
