@@ -5,7 +5,7 @@
  * @stack: Double pointer to the head of the stack.
  * @line_number: The current line number in the Monty bytecode file.
  */
-void div(stack_t **stack, unsigned int line_number)
+void div_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top, *second_top;
 	int result;
