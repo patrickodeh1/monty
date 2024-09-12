@@ -43,4 +43,6 @@ void read_file(FILE *file);
 void execute_opcode(stack_t **stack, char *opcode,
 					unsigned int line_number, char *arg);
 void free_stack(stack_t *stack);
+void pint(stack_t **stack, unsigned int line_number);
+int is_integer(char *arg);
 #endif /* MONTY_H */
