@@ -8,7 +8,7 @@
  */
 void push(stack_t **stack, unsigned int line_number, char *arg)
 {
-	int value;
+	int value, i;
 	stack_t *new_node;
 
 	/* Check if the argument is valid */
@@ -18,7 +18,7 @@ void push(stack_t **stack, unsigned int line_number, char *arg)
 		exit(EXIT_FAILURE);
 	}
 
-	for (int i = 1; arg[i] != '\0'; i++)
+	for (i = 1; arg[i] != '\0'; i++)
     {
         if (!isdigit(arg[i]))
         {
