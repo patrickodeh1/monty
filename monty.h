@@ -45,4 +45,6 @@ void execute_opcode(stack_t **stack, char *opcode,
 void free_stack(stack_t *stack);
 void pint(stack_t **stack, unsigned int line_number);
 int is_integer(char *arg);
+void pop(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */
